@@ -19,3 +19,21 @@ Use environment variables directly or a local `.env` file:
 - `PORT` (default: `8080`)
 
 Sample values are in `.env.example`.
+
+## Run
+
+```bash
+npm start
+```
+
+## Test
+
+```bash
+npm test
+```
+
+## Verify (local/CI)
+
+```bash
+npm run verify
+```

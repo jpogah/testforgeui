@@ -1,0 +1,11 @@
+{
+  "name": "testforgeui",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Minimal hello world HTTP app with automated route test",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test",
+    "verify": "npm run test"
+  }
+}
