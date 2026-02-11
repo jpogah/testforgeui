@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "description": "Minimal hello world HTTP app with automated route test",
+  "main": "src/index.js",
   "scripts": {
-    "start": "node src/server.js",
+    "start": "node src/index.js",
     "test": "node --test",
     "verify": "npm run test"
   }

@@ -1,28 +1,32 @@
-const http = require("node:http");
+const http = require('node:http');
+const { route } = require('./router');
 
 function requestHandler(req, res) {
-  if (req.method === "GET" && req.url === "/hello-world") {
-    res.writeHead(200, { "content-type": "text/plain; charset=utf-8" });
-    res.end("hello world");
-    return;
-  }
-
-  res.writeHead(404, { "content-type": "text/plain; charset=utf-8" });
-  res.end("not found");
+  route(req, res);
 }
 
 function createServer() {
   return http.createServer(requestHandler);
 }
 
+function startServer(config) {
+  const server = createServer();
+
+  server.listen(config.port, config.host, () => {
+    console.log(`Server listening on http://${config.host}:${config.port}`);
+  });
+
+  return server;
+}
+
 if (require.main === module) {
   const port = Number(process.env.PORT || 3000);
-  createServer().listen(port, () => {
-    console.log(`Server listening on http://localhost:${port}`);
-  });
+  const host = process.env.HOST || 'localhost';
+  startServer({ port, host });
 }
 
 module.exports = {
   createServer,
-  requestHandler
+  requestHandler,
+  startServer,
 };
