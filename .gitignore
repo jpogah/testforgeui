@@ -1,0 +1,12 @@
+bin/
+.cache/
+.env
+
+# Auto-added by forge to prevent large directory commits
+node_modules/
+.next/
+dist/
+build/
+__pycache__/
+venv/
+.venv/
